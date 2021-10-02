@@ -17,13 +17,15 @@ import { storage, db } from './firebase';
 import firebase from 'firebase';
 import { selectUser } from './features/appSlice';
 import TimeSelect from './components/TimeSelect';
+import { selectDisplayLength, selectDisplayTimeSet, setDisplayTimeSet } from './features/previewSlice';
 
 function Preview() {
     const cameraImage = useSelector(selectCameraImage);
     const history = useHistory();
     const dispatch = useDispatch();
     const user = useSelector(selectUser);
-    const [showTimer, setShowTimer] = useState(false);
+    const showTimer = useSelector(selectDisplayTimeSet);
+    const displayTime = useSelector(selectDisplayLength);
 
     useEffect(() => {
         if (!cameraImage) {
@@ -33,6 +35,10 @@ function Preview() {
 
     const closePreview = () => {
         dispatch(resetCameraImage());
+    }
+
+    const timerClick = () => {
+        dispatch(setDisplayTimeSet(true));
     }
 
     const sendPost = () => {
@@ -50,6 +56,7 @@ function Preview() {
             storage.ref('posts').child(id).getDownloadURL().then((url) => {
                 db.collection('posts').add({
                     imageUrl: url,
+                    displayTime: displayTime,
                     username: user.username,
                     read: false,
                     profilePic: user.profilePic,
@@ -72,10 +79,10 @@ function Preview() {
                 <AttachFileIcon />
                 <CropIcon /> */}
                 <TimerIcon 
-                    onClick={setShowTimer(!showTimer)}
+                    onClick={timerClick}
                 />
             </div>
-            <div className={showTimer ? '' : ''}>
+            <div className={showTimer ? 'preview__timerSelect' : 'hidden' }>
                 <TimeSelect />
             </div>
             <img src={cameraImage} alt=""/>

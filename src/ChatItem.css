@@ -7,6 +7,16 @@
   cursor: pointer;
 }
 
+.chatItemRead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  border-bottom: 1px solid whitesmoke;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
 .chatItem__avatar {
   height: 35px !important;
   width: 35px !important;

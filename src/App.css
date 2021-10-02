@@ -25,3 +25,7 @@
   background-color: white;
   height: 400px;
 }
+
+.hidden {
+  display: none;
+}
