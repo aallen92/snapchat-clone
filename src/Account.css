@@ -1,0 +1,25 @@
+.account {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  width: 252px;
+  background-color: #059ee0;
+  align-items: center;
+}
+
+.account__info {
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: center;
+  background-color: white;
+}
+
+.account__info > h1 {
+  font-size: 26px;
+}
+
+. .account__signOutButton {
+  height: 40px;
+  width: 50%;
+  background-color: white;
+}
