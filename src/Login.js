@@ -23,8 +23,16 @@ function Login() {
     return (
         <div className='login'>
             <div className='login__container'>
+                <img
+                className='login__logo'
+                src="https://lakeridgenewsonline.com/wp-content/uploads/2020/04/snapchat.jpg"
+                alt=""
+                />
                 <button className='login__signInButton' onClick={signIn}>
-                    Sign In
+                    Log In
+                </button>
+                <button className='login__signUpButton'>
+                    Sign Up
                 </button>
             </div>
         </div>

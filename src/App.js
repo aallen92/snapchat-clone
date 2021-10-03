@@ -38,22 +38,12 @@ function App() {
       <Router>
       {!user ? (
         <>
-          <img
-            className='app__logo'
-            src="https://lakeridgenewsonline.com/wp-content/uploads/2020/04/snapchat.jpg"
-            alt=""
-          />
           <div className='app__body'>
             <Login />
           </div>
         </>
       ) : (
         <>
-        <img
-          className='app__logo'
-          src="https://lakeridgenewsonline.com/wp-content/uploads/2020/04/snapchat.jpg"
-          alt=""
-        />
         <div className='app__body'>
           <div className='app__bodyBackground'>
           <Switch>

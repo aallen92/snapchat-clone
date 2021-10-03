@@ -1,8 +1,45 @@
 .login {
-  background-color: white;
+  position: relative;
+  background-color: #fefc01;
   display: grid;
   align-items: center;
   justify-content: center;
   height: 400px;
   width: 252px;
+}
+
+.login__logo {
+  position: absolute;
+  object-fit: contain;
+  height: 100px;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login__signInButton {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  border: none;
+  background-color: red;
+  color: white;
+  font-size: x-large;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.login__signUpButton {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  border: none;
+  background-color: blue;
+  color: white;
+  font-size: x-large;
+  font-weight: 700;
 }
