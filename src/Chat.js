@@ -3,13 +3,12 @@ import React, { useEffect, useState } from 'react';
 import './Chat.css';
 import ChatItem from './ChatItem';
 import SearchIcon from '@material-ui/icons/Search';
-import ChatBubbleIcon from '@material-ui/icons/ChatBubble';
-import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import { auth, db } from './firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from './features/appSlice';
 import { useHistory } from 'react-router-dom';
 import { resetCameraImage } from './features/cameraSlice';
+import Menu from './components/Menu';
 
 
 function Chat() {
@@ -31,15 +30,6 @@ function Chat() {
         );
     }, []);
 
-    const takeSnap = () => {
-        dispatch(resetCameraImage());
-        history.push('/');
-    }
-
-    const goAccount = () => {
-        history.push('/account');
-    }
-
     return (
         <div className='chat'>
             <div className='chat__header'>
@@ -52,7 +42,6 @@ function Chat() {
                     <SearchIcon className='chat__searchIcon' />
                     <input placeholder='Friends' type='text' />
                 </div>
-                <ChatBubbleIcon className='chat__chatIcon' />
             </div>
             <div className='chat__posts'>
                 {posts.map(({id, data: { profilePic, username, timestamp, imageUrl, read, displayTime }}) => (
@@ -68,10 +57,8 @@ function Chat() {
                     />
                 ))}
             </div>
-            <RadioButtonUncheckedIcon
-                className='chat__takePicIcon'
-                onClick={takeSnap}
-                fontSize='large'
+            <Menu 
+                active={2}
             />
         </div>
     )

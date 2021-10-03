@@ -5,10 +5,10 @@ import { useDispatch } from 'react-redux';
 import { setCameraImage } from './features/cameraSlice';
 import { useHistory } from 'react-router-dom';
 import './WebcamCapture.css';
-import ChatBubbleIcon from '@material-ui/icons/ChatBubble';
+import Menu from './components/Menu';
 
 const videoConstraints = {
-    width: 250,
+    width: 252,
     height: 400,
     facingMode: "user",
 }
@@ -24,10 +24,6 @@ function WebcamCapture() {
         history.push('/preview');
     }, [webcamRef, dispatch, history])
 
-    const goChat = () => {
-        history.push('/chats');
-    }
-
     return (
         <div className='webcamCapture'>
             <Webcam
@@ -39,15 +35,13 @@ function WebcamCapture() {
                 videoConstraints={videoConstraints}
             />
 
-            <ChatBubbleIcon 
-                className='webcamCapture__chatIcon' 
-                onClick={goChat}
-            />
-
             <RadioButtonUncheckedIcon
                 className='webcamCapture__button'
                 onClick={capture}
                 fontSize="large"
+            />
+            <Menu 
+                active={3}
             />
         </div>
     );
